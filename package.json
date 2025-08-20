@@ -18,6 +18,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "signal-polyfill": "^0.2.2",
     "vue": "^3.5.18"
   },
   "devDependencies": {
