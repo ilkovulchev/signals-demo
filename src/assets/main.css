@@ -1,35 +1,166 @@
 @import './base.css';
 
+/* General page styling */
+body,
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: #111827; /* near-black background */
+  color: #f9fafb; /* light text */
+  margin: 0;
   padding: 2rem;
-  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+/* Form container */
+.form-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  background: #1f2937; /* dark gray */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+/* Labels */
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #f3f4f6;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* Inputs */
+input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #374151;
+  border-radius: 8px;
+  outline: none;
+  background: #111827;
+  color: #f9fafb;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+input:focus {
+  border-color: #3b82f6; /* bright blue focus */
+  background: #1e293b;
+}
+
+/* Buttons */
+button {
+  margin-top: 0.8rem;
+  margin-right: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #3b82f6; /* blue accent */
+  color: white;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #2563eb; /* darker blue */
+}
+
+button:active {
+  background: #1d4ed8;
+}
+
+/* Full name display */
+.output {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f9fafb;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid #3b82f6;
+  background: #1e293b;
+  border-radius: 6px;
+}
+
+/* Secondary button (green) */
+.btn-secondary {
+  background: #10b981; /* emerald green */
+}
+
+.btn-secondary:hover {
+  background: #059669;
+}
+
+.btn-secondary:active {
+  background: #047857;
+}
+
+/* Grid layout for side-by-side demo */
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Headings */
+.form-card h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #f9fafb;
+}
+
+/* Secondary button (emerald green for variation) */
+.btn-secondary {
+  background: #10b981;
+}
+
+.btn-secondary:hover {
+  background: #059669;
+}
+
+.btn-secondary:active {
+  background: #047857;
+}
+
+/* Tertiary button (teal/green for signals demo) */
+.btn-tertiary {
+  background: #22c55e; /* brighter green */
+}
+
+.btn-tertiary:hover {
+  background: #16a34a;
+}
+
+.btn-tertiary:active {
+  background: #15803d;
+}
+
+/* Scrollable list box */
+.list-box {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  height: 10rem; /* ~h-40 equivalent */
+  overflow-y: auto;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  background: #111827;
+  border: 1px solid #374151;
+}
+
+.list-box li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #1f2937;
+}
+
+.list-box li:last-child {
+  border-bottom: none;
 }
