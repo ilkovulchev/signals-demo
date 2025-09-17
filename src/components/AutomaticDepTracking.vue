@@ -38,9 +38,12 @@ function effect(callback) {
 const firstName = new Signal.State('John')
 const lastName = new Signal.State('Doe')
 
+const middleName = new Signal.State('Bon')
+
 const fullNameRef = ref('John Doe')
 const firstNameRef = ref('John')
 const lastNameRef = ref('Doe')
+const middleNameRef = ref('Bon')
 
 // 2. Computed signal (auto-tracks deps)
 const fullName = new Signal.Computed(() => {
@@ -49,7 +52,7 @@ const fullName = new Signal.Computed(() => {
   return `${firstName.get()} ${lastName.get()}`
 })
 
-// watch fullName using your custom effect
+// watch fullName using the custom effect
 effect(() => {
   console.log('Effect triggered:', fullName.get())
 })
@@ -65,12 +68,19 @@ function changeLastName(e, value) {
     lastName.set(value)
   }
 }
+function changeMiddleName(e, value) {
+  if (e.type === 'click' || (e.type === 'keypress' && e.key === 'Enter')) {
+    middleName.set(value)
+  }
+}
 function clearNames() {
   firstName.set('John')
   lastName.set('Doe')
+  middleName.set('Bon')
 
   firstNameRef.value = 'John'
   lastNameRef.value = 'Doe'
+  middleNameRef.value = 'Bon'
 }
 </script>
 
@@ -87,6 +97,15 @@ function clearNames() {
     <label for="lastName">Lat Name: </label
     ><input id="lastName" v-model="lastNameRef" @keypress="changeLastName($event, lastNameRef)" />
     <button @click="changeLastName($event, lastNameRef)">Change Last Name</button>
+
+    <br />
+    <label for="middleName">Middle Name: </label
+    ><input
+      id="middleName"
+      v-model="middleNameRef"
+      @keypress="changeMiddleName($event, middleNameRef)"
+    />
+    <button @click="changeMiddleName($event, middleNameRef)">Change Middle Name</button>
 
     <div class="output">Full Name: {{ fullNameRef }}</div>
 

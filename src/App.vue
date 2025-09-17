@@ -6,7 +6,7 @@ import Memoization from './components/Memoization.vue'
 
 <template>
   <!-- Demo code for AUTOMATIC DEPNDENCY TRACKING -->
-  <!-- <AutomaticDepTracking /> -->
+  <AutomaticDepTracking />
 
   <!-- Demo code for LAZY EVALUATION -->
   <!-- <LazyEvaluation /> -->
