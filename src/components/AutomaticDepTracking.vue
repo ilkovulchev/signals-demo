@@ -54,23 +54,36 @@ const fullName = new Signal.Computed(() => {
 
 // watch fullName using the custom effect
 effect(() => {
-  console.log('Effect triggered:', fullName.get())
+  fullName.get()
+  //   console.log('Effect triggered:', fullName.get())
 })
 
 // 3. Event handlers
 function changeFirstName(e, value) {
-  if (e.type === 'click' || (e.type === 'keypress' && e.key === 'Enter')) {
+  if (
+    value !== firstName.get() &&
+    (e.type === 'click' || (e.type === 'keypress' && e.key === 'Enter'))
+  ) {
     firstName.set(value)
+    console.log('First name changed: ', firstName.get())
   }
 }
 function changeLastName(e, value) {
-  if (e.type === 'click' || (e.type === 'keypress' && e.key === 'Enter')) {
+  if (
+    value !== lastName.get() &&
+    (e.type === 'click' || (e.type === 'keypress' && e.key === 'Enter'))
+  ) {
     lastName.set(value)
+    console.log('Last name changed: ', lastName.get())
   }
 }
 function changeMiddleName(e, value) {
-  if (e.type === 'click' || (e.type === 'keypress' && e.key === 'Enter')) {
+  if (
+    value !== middleName.get() &&
+    (e.type === 'click' || (e.type === 'keypress' && e.key === 'Enter'))
+  ) {
     middleName.set(value)
+    console.log('Middle name changed: ', middleName.get())
   }
 }
 function clearNames() {
@@ -94,7 +107,7 @@ function clearNames() {
     />
     <button @click="changeFirstName($event, firstNameRef)">Change First Name</button>
     <br />
-    <label for="lastName">Lat Name: </label
+    <label for="lastName">Last Name: </label
     ><input id="lastName" v-model="lastNameRef" @keypress="changeLastName($event, lastNameRef)" />
     <button @click="changeLastName($event, lastNameRef)">Change Last Name</button>
 

@@ -39,6 +39,7 @@ function increment() {
   countVueRef.value = count.get() + 1
   count.set(count.get() + 1)
   console.log('➕ Count incremented:', count.get())
+  accessDouble()
 }
 </script>
 

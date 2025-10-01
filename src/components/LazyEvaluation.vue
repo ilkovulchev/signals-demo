@@ -48,11 +48,14 @@ effect(() => {
 */
 
 const count = new Signal.State(0)
-const double = new Signal.Computed(() => count.get() * 2)
+const double = new Signal.Computed(() => {
+  console.log('🔄 Computing double...')
+  return count.get() * 2
+})
 
 const countRef = ref(0)
 const doubleRef = ref(0)
-const updateCount = () => {
+const increaseCount = () => {
   count.set(count.get() + 1)
 
   countRef.value = count.get()
@@ -64,7 +67,7 @@ const updateCount = () => {
 
 <template>
   <div class="form-card">
-    <button @click="updateCount">Increase Count</button>
+    <button @click="increaseCount">Increase Count</button>
 
     <div class="output">Count: {{ countRef }}</div>
     <div class="output">Double: {{ doubleRef }}</div>
